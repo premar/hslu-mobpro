@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Persistenz</string>
+    <string name="application_preferences_title">Application-Preferences</string>
+    <string name="private_preference_text">OverviewFragment.onResume() wurde seit der Installation dieser App %1$d mal aufgerufen.</string>
+</resources>
