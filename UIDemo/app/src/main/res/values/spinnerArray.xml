@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_array">
+        <item>The C++ Programming Language</item>
+        <item>The Practice of Programming</item>
+        <item>The Art of Computer Programming</item>
+        <item>Close to the Machine</item>
+        <item>Fundamentals of Computer Algorithms</item>
+        <item>The Art of Unix Programming</item>
+        <item>The Psychology of Computer Programming</item>
+        <item>The Java Programming Language</item>
+    </string-array>
+</resources>

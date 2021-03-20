@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">UI-Demo</string>
+    <string name="introText">Wilkommen zur 2. Übung im Modul MobPro.</string>
+    <string name="layoutTitle">1. Layouts: Linear und Contraint</string>
+    <string name="layoutLinearButton">Linear Layout</string>
+    <string name="layoutConstraintButton">Constraint Layout</string>
+    <string name="ratingTitle">2. Events am Bsp. RatingBar</string>
+    <string name="spinnerTitle">3. Spinner</string>
+    <string name="dialogTitle">4. Dialog</string>
+    <string name="dialogButtonText">Zeig mir die Auswahl</string>
+    <string name="constraintLayoutTitle">Beispiel Constraint-Layout</string>
+    <string name="constraintLayoutProduct">Produkt-ID</string>
+    <string name="constraintLayoutCheckbox">Sondertarif</string>
+    <string name="constraintLayoutAmount">Menge</string>
+    <string name="constraintLayoutViewModelButton">VIEWMODEL: 0++</string>
+    <string name="constraintLayoutFragmentButton">FRAGMENT: 0++</string>
+</resources>
