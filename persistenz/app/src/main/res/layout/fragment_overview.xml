@@ -45,5 +45,95 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="@string/tea_preference_default" />
+
+        <TextView
+            android:id="@+id/titleStorageTextView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:text="@string/storage_title" />
+
+        <CheckBox
+            android:id="@+id/useExternalStorageCheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/external_storage_checkbox" />
+
+        <TextView
+            android:id="@+id/storageMessageTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/storageEditMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:minHeight="100dp"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/writeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/button_write"
+                style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+            <Button
+                android:id="@+id/readButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/button_read"
+                style="@style/Widget.MaterialComponents.Button.TextButton" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/titleDatabaseTextView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:text="@string/database_title" />
+
+        <Button
+            android:id="@+id/databaseCreateButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/database_create" />
+
+        <Button
+            android:id="@+id/databaseShowButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/database_show" />
+
+        <TextView
+            android:id="@+id/titleContentProviderTextView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:text="@string/content_provider_title" />
+
+        <Button
+            android:id="@+id/showSMSButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/show_sms_button" />
     </LinearLayout>
 </ScrollView>
