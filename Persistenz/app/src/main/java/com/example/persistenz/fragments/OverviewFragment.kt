@@ -2,14 +2,15 @@ package com.example.persistenz.fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
 import com.example.persistenz.R
 import com.example.persistenz.databinding.FragmentOverviewBinding
+import com.example.persistenz.models.StorageModel
 
 
 class OverviewFragment : Fragment(R.layout.fragment_overview) {
@@ -43,6 +44,26 @@ class OverviewFragment : Fragment(R.layout.fragment_overview) {
             editor.putString("teaPreferred", "Cola")
             editor.apply()
             binding.teaPreferenceTextView.text = String.format(resources.getString(R.string.tea_preference_text), "Cola", "gesüsst")
+        }
+
+        binding.writeButton.setOnClickListener {
+            var storageModel = ViewModelProvider(requireActivity())[StorageModel::class.java]
+            if(binding.useExternalStorageCheckBox.isChecked) {
+                storageModel.writeExternalStorage(binding.storageEditMultiLine.text.toString())
+            } else {
+                storageModel.writeInternalStorage(binding.storageEditMultiLine.text.toString())
+            }
+        }
+
+        binding.readButton.setOnClickListener {
+            var storageModel = ViewModelProvider(requireActivity())[StorageModel::class.java]
+            var result = ""
+            result = if(binding.useExternalStorageCheckBox.isChecked) {
+                storageModel.readExternalStorage()
+            } else {
+                storageModel.readInternalStorage()
+            }
+            binding.storageEditMultiLine.setText(result)
         }
 
         var isSweet = preferences.getBoolean("teaWithSugar", false)
