@@ -1,17 +1,17 @@
 <resources>
     <string name="app_name">Persistenz</string>
-    <string name="application_preference_title">Application-Preferences</string>
-    <string name="private_preference_text">OverviewFragment.onResume() wurde seit der Installation dieser App %1$d mal aufgerufen.</string>
-    <string name="tea_preference_text">Ich drinke am liebsten %1$s, %2$s.</string>
-    <string name="tea_preference_edit">Tee-Preferences editieren</string>
-    <string name="tea_preference_default">Tee Default-Prefs setzen</string>
-    <string name="external_storage_checkbox">Externen Speicher benutzen</string>
-    <string name="button_write">Speichern</string>
-    <string name="button_read">Laden</string>
+    <string name="preference_title">Application-Preferences</string>
+    <string name="preference_fragment_message_text">OverviewFragment.onResume() wurde seit der Installation dieser App %1$d mal aufgerufen.</string>
+    <string name="preference_tea_message_text">Ich drinke am liebsten %1$s, %2$s.</string>
+    <string name="preference_tea_edit_button">Tee-Preferences editieren</string>
+    <string name="preference_tea_default_button">Tee Default-Prefs setzen</string>
     <string name="storage_title">Dateisystem</string>
+    <string name="storage_external_checkbox">Externen Speicher benutzen</string>
+    <string name="storage_write_button">Speichern</string>
+    <string name="storage_read_button">Laden</string>
     <string name="database_title">Room DB</string>
-    <string name="database_create">Notiz erzeugen</string>
-    <string name="database_show">Notiz zeigen</string>
+    <string name="database_note_create_button">Notiz erzeugen</string>
+    <string name="database_note_show_button">Notiz zeigen</string>
     <string name="content_provider_title">Content Provider</string>
-    <string name="show_sms_button">SMS anzeigen</string>
+    <string name="content_provider_sms_show_button">SMS anzeigen</string>
 </resources>

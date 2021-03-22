@@ -21,6 +21,14 @@ class OverviewFragment : Fragment(R.layout.fragment_overview) {
     companion object {
         var SHARED_PREFERENCES_OVERVIEW = "fragment"
         var COUNTER_KEY = "counter"
+        var TEA_DEFAULT_SWEETER_KEY = "teaSweeter"
+        var TEA_DEFAULT_SWEETER_VALUE = "natural"
+        var TEA_DEFAULT_SUGAR_KEY = "teaWithSugar"
+        var TEA_DEFAULT_SUGAR_VALUE = true
+        var TEA_DEFAULT_PREFERRED_KEY = "teaPreferred"
+        var TEA_DEFAULT_PREFERRED_VALUE = "Lipton/Pfefferminztee"
+        var TEA_DEFAULT_IS_SWEET = "gesüsst"
+        var TEA_DEFAULT_IS_NOT_SWEET = "ungesüsst"
         fun newInstance(): OverviewFragment {
             return OverviewFragment()
         }
@@ -30,35 +38,35 @@ class OverviewFragment : Fragment(R.layout.fragment_overview) {
         _binding = FragmentOverviewBinding.inflate(inflater, container, false)
         var preferences = PreferenceManager.getDefaultSharedPreferences(requireActivity())
 
-        binding.teaPreferenceEditButton.setOnClickListener {
+        binding.preferenceTeaEditButton.setOnClickListener {
             parentFragmentManager.beginTransaction()
                     .replace(R.id.fragment_host, TeaPreferenceFragment.newInstance())
                     .addToBackStack("OverviewFragment")
                     .commit();
         }
 
-        binding.teaPreferenceDefaultButton.setOnClickListener {
+        binding.preferenceTeaDefaultButton.setOnClickListener {
             var editor = preferences.edit()
-            editor.putString("teaSweeter", "special")
-            editor.putBoolean("teaWithSugar", true)
-            editor.putString("teaPreferred", "Cola")
+            editor.putString(TEA_DEFAULT_SWEETER_KEY, TEA_DEFAULT_SWEETER_VALUE)
+            editor.putBoolean(TEA_DEFAULT_SUGAR_KEY, TEA_DEFAULT_SUGAR_VALUE)
+            editor.putString(TEA_DEFAULT_PREFERRED_KEY, TEA_DEFAULT_PREFERRED_VALUE)
             editor.apply()
-            binding.teaPreferenceTextView.text = String.format(resources.getString(R.string.tea_preference_text), "Cola", "gesüsst")
+            binding.preferenceTeaMessageTextView.text = String.format(resources.getString(R.string.preference_tea_message_text), TEA_DEFAULT_PREFERRED_VALUE, TEA_DEFAULT_IS_SWEET)
         }
 
-        binding.writeButton.setOnClickListener {
+        binding.storageWriteButton.setOnClickListener {
             var storageModel = ViewModelProvider(requireActivity())[StorageModel::class.java]
-            if(binding.useExternalStorageCheckBox.isChecked) {
+            if(binding.storageExternalCheckbox.isChecked) {
                 storageModel.writeExternalStorage(binding.storageEditMultiLine.text.toString())
             } else {
                 storageModel.writeInternalStorage(binding.storageEditMultiLine.text.toString())
             }
         }
 
-        binding.readButton.setOnClickListener {
+        binding.storageReadButton.setOnClickListener {
             var storageModel = ViewModelProvider(requireActivity())[StorageModel::class.java]
             var result = ""
-            result = if(binding.useExternalStorageCheckBox.isChecked) {
+            result = if(binding.storageExternalCheckbox.isChecked) {
                 storageModel.readExternalStorage()
             } else {
                 storageModel.readInternalStorage()
@@ -66,15 +74,15 @@ class OverviewFragment : Fragment(R.layout.fragment_overview) {
             binding.storageEditMultiLine.setText(result)
         }
 
-        var isSweet = preferences.getBoolean("teaWithSugar", false)
-        var preferred = preferences.getString("teaPreferred", "")
+        var isSweet = preferences.getBoolean(TEA_DEFAULT_SUGAR_KEY, false)
+        var preferred = preferences.getString(TEA_DEFAULT_PREFERRED_KEY, "")
         var sweet = ""
         if(isSweet) {
-            sweet = "gesüsst"
+            sweet = TEA_DEFAULT_IS_SWEET
         } else {
-            sweet = "ungesüsst"
+            sweet = TEA_DEFAULT_IS_NOT_SWEET
         }
-        binding.teaPreferenceTextView.text = String.format(resources.getString(R.string.tea_preference_text), preferred, sweet)
+        binding.preferenceTeaMessageTextView.text = String.format(resources.getString(R.string.preference_tea_message_text), preferred, sweet)
 
         return binding.root;
     }
@@ -91,6 +99,6 @@ class OverviewFragment : Fragment(R.layout.fragment_overview) {
         val editor = preferences.edit()
         editor.putInt(COUNTER_KEY, newResumeCount)
         editor.apply()
-        binding.privatePreferenceTextView.text = String.format(resources.getString(R.string.private_preference_text), newResumeCount)
+        binding.preferenceFragmentMessageTextView.text = String.format(resources.getString(R.string.preference_fragment_message_text), newResumeCount)
     }
 }
