@@ -1,10 +1,15 @@
 package com.example.persistenz.fragments
 
+import android.Manifest
+import android.app.AlertDialog
 import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.provider.Telephony
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
@@ -72,6 +77,24 @@ class OverviewFragment : Fragment(R.layout.fragment_overview) {
                 storageModel.readInternalStorage()
             }
             binding.storageEditMultiLine.setText(result)
+        }
+
+        binding.contentProviderSmsShowButton.setOnClickListener {
+            val grant = checkSelfPermission(requireActivity(), Manifest.permission.READ_SMS)
+            if (grant != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(arrayOf(Manifest.permission.READ_SMS),25)
+            } else {
+                var cursor = requireActivity().contentResolver.query(
+                        Telephony.Sms.Inbox.CONTENT_URI,
+                        arrayOf(Telephony.Sms.Inbox._ID, Telephony.Sms.Inbox.BODY),
+                        null, null, null)
+                AlertDialog.Builder(requireActivity())
+                        .setTitle("SMS Inbox")
+                        .setCursor(cursor, null, Telephony.Sms.Inbox.BODY)
+                        .setNeutralButton("OK", null)
+                        .create()
+                        .show()
+            }
         }
 
         var isSweet = preferences.getBoolean(TEA_DEFAULT_SUGAR_KEY, false)
