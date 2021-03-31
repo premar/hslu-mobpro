@@ -5,6 +5,8 @@
     <string name="preference_tea_message_text">Ich drinke am liebsten %1$s, %2$s.</string>
     <string name="preference_tea_edit_button">Tee-Preferences editieren</string>
     <string name="preference_tea_default_button">Tee Default-Prefs setzen</string>
+    <string name="preference_tea_is_sweet_text">gesüsst</string>
+    <string name="preference_tea_is_not_sweet_text">ungesüsst</string>
     <string name="storage_title">Dateisystem</string>
     <string name="storage_external_checkbox">Externen Speicher benutzen</string>
     <string name="storage_write_button">Speichern</string>
