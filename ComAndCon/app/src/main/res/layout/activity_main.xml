@@ -1,0 +1,97 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/concurrencyTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@color/design_default_color_primary"
+            android:textColor="@color/white"
+            android:text="Nebenläufigkeiten (Threads &amp; Worker)"/>
+
+        <Button
+            android:id="@+id/concurrencyBlockMainThreadButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="GUI 7 Sekunden blockieren" />
+
+        <Button
+            android:id="@+id/concurrencyStartNewThreadButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Demo-Thread starten" />
+
+        <Button
+            android:id="@+id/concurrencyStartNewWorkerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Demo-Worker starten" />
+
+        <TextView
+            android:id="@+id/communicationTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="@color/design_default_color_primary"
+            android:textColor="@color/white"
+            android:text="Kommunikation (HTTP &amp; JSON)"/>
+
+        <Button
+            android:id="@+id/communicationStartServerRequestButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Server-Anfrage starten" />
+
+        <Button
+            android:id="@+id/communicationResetViewModelButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="View Model zurücksetzten" />
+
+        <TextView
+            android:id="@+id/communicationShowBandCounterTextView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/communicationShowBandsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Zeige Band-Auswahl an" />
+
+        <TextView
+            android:id="@+id/communicationBandNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="1dp"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/communicationBandInfoTextView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="1dp"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/communicationBandImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp" />
+    </LinearLayout>
+</ScrollView>
